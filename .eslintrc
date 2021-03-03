@@ -1,0 +1,27 @@
+{
+    "extends": [
+      "eslint:recommended",
+      "plugin:react/recommended",
+      "plugin:@typescript-eslint/recommended",
+      "prettier/@typescript-eslint",
+      "plugin:prettier/recommended"
+    ],
+
+    "plugins": ["react", "@typescript-eslint", "prettier"],
+    "rules": {
+      "semi": [2, "always"],
+      "no-console": "off",
+      "no-debugger": "off",
+      "no-await-in-loop": "off",
+      "no-plusplus": "off",
+      "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+      "prettier/prettier": [
+        "error", {
+          "singleQuote": true,
+          "semi": true,
+          "endOfLine":"auto"
+        }
+      ]
+    },
+    "parser": "@typescript-eslint/parser"
+  }
