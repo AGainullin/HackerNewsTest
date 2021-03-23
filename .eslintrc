@@ -1,8 +1,8 @@
 {
     "extends": [
-      "eslint:recommended",
-      "plugin:react/recommended",
+      "plugin:@typescript-eslint/eslint-recommended",
       "plugin:@typescript-eslint/recommended",
+      "plugin:react/recommended",
       "plugin:prettier/recommended"
     ],
 
@@ -10,10 +10,10 @@
     "rules": {
       "semi": [2, "always"],
       "no-console": "off",
-      "no-debugger": "off",
+      "no-debugger": "warn",
       "no-await-in-loop": "off",
       "no-plusplus": "off",
-      "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+      "@typescript-eslint/no-explicit-any": "off",
       "prettier/prettier": [
         "error", {
           "singleQuote": true,
@@ -22,5 +22,9 @@
         }
       ]
     },
-    "parser": "@typescript-eslint/parser"
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "root": true
   }
