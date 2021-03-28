@@ -1,16 +1,40 @@
-import './styles/main.scss';
 import React from 'react';
+import Container from '@material-ui/core/Container';
 import { BrowserRouter } from 'react-router-dom';
+import './assets/styles/main.scss';
+import Grid from '@material-ui/core/Grid';
+import logo from './assets/image/logo.svg';
 import NewsList from './components/news-list';
 
 function App(): JSX.Element {
+  const year = new Date();
   return (
-    <div className="wrapper">
-      Hacker News 1
-      <BrowserRouter>
-        <NewsList />
-      </BrowserRouter>
-    </div>
+    <Container className="wrapper">
+      <Grid container direction="column" alignItems="center">
+        <Grid item>
+          <Grid container spacing={10} alignItems="center" className="header">
+            <Grid item xs={6} className="logo">
+              <a href="/">
+                <img src={logo} />
+              </a>
+            </Grid>
+            <Grid item xs={6} className="logoText">
+              <h3>Hacker News Test</h3>
+            </Grid>
+          </Grid>
+        </Grid>
+
+        <Grid item className="content">
+          <BrowserRouter>
+            <NewsList />
+          </BrowserRouter>
+        </Grid>
+
+        <Grid item>
+          <footer>&copy; Hacker News {year.getFullYear()}</footer>
+        </Grid>
+      </Grid>
+    </Container>
   );
 }
 

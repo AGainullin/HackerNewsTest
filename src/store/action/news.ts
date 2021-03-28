@@ -3,7 +3,7 @@ import { getNewsArray } from '../../requests/requests';
 import { NewsAction, NewsActionTypes } from '../../types/news';
 
 export const getNewsAction = () => {
-  return async (dispatch: Dispatch<NewsAction>): Promise<any> => {
+  return async (dispatch: Dispatch<NewsAction>): Promise<void> => {
     try {
       dispatch({ type: NewsActionTypes.FETCH_NEWS });
       const newsArray = await getNewsArray();

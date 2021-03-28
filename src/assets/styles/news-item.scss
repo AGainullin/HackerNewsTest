@@ -1,0 +1,32 @@
+#root .news__item__page {
+    margin-bottom: 30px;
+    div {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    svg {
+        margin-right: 5px;
+    }
+}
+
+#buttons {
+    position: fixed;
+    left:5%;
+    top:30%;
+    background: #F3F7FA;
+    padding: 20px;
+    border-radius: 5px;
+    width: 110px;
+    div {
+        margin:10px 0;
+        width: 100%;
+        button {
+            width: 100%; 
+        }
+        a {
+            width: 100%; 
+        }
+    }
+
+}
