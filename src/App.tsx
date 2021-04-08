@@ -5,8 +5,9 @@ import './assets/styles/main.scss';
 import Grid from '@material-ui/core/Grid';
 import logo from './assets/image/logo.svg';
 import NewsList from './components/news-list';
+import ScrollToTop from './utils/scroll-to-top';
 
-function App(): JSX.Element {
+function App(): React.ReactElement {
   const year = new Date();
   return (
     <Container className="wrapper">
@@ -26,6 +27,7 @@ function App(): JSX.Element {
 
         <Grid item className="content">
           <BrowserRouter>
+            <ScrollToTop />
             <NewsList />
           </BrowserRouter>
         </Grid>

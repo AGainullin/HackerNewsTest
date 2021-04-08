@@ -9,11 +9,12 @@
     "plugins": ["react", "@typescript-eslint", "prettier"],
     "rules": {
       "semi": [2, "always"],
-      "no-console": "off",
+      "no-console": "warn",
       "no-debugger": "warn",
       "no-await-in-loop": "off",
       "no-plusplus": "off",
       "@typescript-eslint/no-explicit-any": "off",
+      "react/prop-types": 0,
       "prettier/prettier": [
         "error", {
           "singleQuote": true,

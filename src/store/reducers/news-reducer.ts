@@ -1,23 +1,29 @@
 import { NewsState, NewsActionTypes, NewsAction } from '../../types/news';
+import produce from 'immer';
 
 const initialState: NewsState = {
   news: [],
-  isLoading: false,
-  error: null,
+  uiState: {
+    isLoading: false,
+    error: null,
+  },
 };
 
-export const newsReducer = (
-  state = initialState,
-  action: NewsAction
-): NewsState => {
-  switch (action.type) {
-    case NewsActionTypes.FETCH_NEWS:
-      return { news: [], isLoading: true, error: null };
-    case NewsActionTypes.FETCH_NEWS_SUCCESS:
-      return { news: action.payload, isLoading: false, error: null };
-    case NewsActionTypes.FETCH_NEWS_ERROR:
-      return { news: [], isLoading: false, error: action.payload };
-    default:
-      return state;
+export const newsReducer = produce(
+  (draft = initialState, action: NewsAction): NewsState => {
+    const { type, payload } = action;
+    switch (type) {
+      case NewsActionTypes.LOADING:
+        draft.uiState.isLoading = payload;
+        return draft;
+      case NewsActionTypes.FETCH_NEWS:
+        draft.news = payload;
+        return draft;
+      case NewsActionTypes.ERROR:
+        draft.uiState.error = payload;
+        return draft;
+      default:
+        return draft;
+    }
   }
-};
+);

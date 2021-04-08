@@ -1,11 +1,13 @@
 import React from 'react';
 import CommentItem from './comment-item';
 
-const CommentsList = ({
-  commentsIdArray,
-}: {
-  commentsIdArray: Array<number> | undefined;
-}): JSX.Element => {
+type CommentsIdArrayProps = {
+  commentsIdArray: number[];
+};
+
+const CommentsList: React.FC<CommentsIdArrayProps> = ({
+  commentsIdArray = [],
+}) => {
   return (
     <ul style={{ margin: '30px 0 30px 50px' }}>
       {commentsIdArray ? (

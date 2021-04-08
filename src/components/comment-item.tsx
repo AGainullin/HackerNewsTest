@@ -7,7 +7,11 @@ import AutorenewIcon from '@material-ui/icons/Autorenew';
 import CommentIcon from '@material-ui/icons/Comment';
 import Grid from '@material-ui/core/Grid';
 
-const CommentItem = ({ id }: { id: number }): JSX.Element => {
+type CommentItemIdProps = {
+  id: number;
+};
+
+const CommentItem: React.FC<CommentItemIdProps> = ({ id }) => {
   const [comment, setComment] = useState<Comment>();
   const [childCommentsList, setChildCommentsList] = useState<JSX.Element>();
 

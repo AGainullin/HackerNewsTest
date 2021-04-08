@@ -11,17 +11,15 @@ import AccountBoxIcon from '@material-ui/icons/AccountBox';
 import StarIcon from '@material-ui/icons/Star';
 import LinkIcon from '@material-ui/icons/Link';
 
-const NewsList = (): JSX.Element => {
-  const { news, isLoading, error } = useTypedSelector(
-    (state) => state.newsPage
-  );
+const NewsList: React.FC = () => {
+  const { news, uiState } = useTypedSelector((state) => state.news);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getNewsAction());
   }, []);
 
-  if (isLoading) {
+  if (uiState.isLoading) {
     return (
       <div className="loading__wrapper">
         <AutorenewIcon
@@ -32,8 +30,8 @@ const NewsList = (): JSX.Element => {
       </div>
     );
   }
-  if (error) {
-    return <h4>{error}</h4>;
+  if (uiState.error) {
+    return <h4>{uiState.error}</h4>;
   }
 
   return (

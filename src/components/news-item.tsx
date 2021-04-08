@@ -10,11 +10,11 @@ import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
 import AccountBoxIcon from '@material-ui/icons/AccountBox';
 
-const NewsItem = ({
-  newsArray,
-}: {
+type NewsItemArrayProps = {
   newsArray: NewsItemType[];
-}): JSX.Element => {
+};
+
+const NewsItem: React.FC<NewsItemArrayProps> = ({ newsArray }): JSX.Element => {
   const { newsItemId } = useParams<{ newsItemId: string }>();
   const history = useHistory();
   const newsItem = newsArray.find((item) => item.id === Number(newsItemId));

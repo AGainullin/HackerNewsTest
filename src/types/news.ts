@@ -1,33 +1,18 @@
 export interface NewsState {
-  news: any[];
-  isLoading: boolean;
-  error: string | null;
+  news: NewsItemType[];
+  uiState: { isLoading: boolean; error: string | null };
 }
 
 export enum NewsActionTypes {
+  LOADING = 'LOADING',
   FETCH_NEWS = 'FETCH_NEWS',
-  FETCH_NEWS_SUCCESS = 'FETCH_NEWS_SUCCESS',
-  FETCH_NEWS_ERROR = 'FETCH_NEWS_ERROR',
+  ERROR = 'ERROR',
 }
 
-interface FetchNewsAction {
-  type: NewsActionTypes.FETCH_NEWS;
+export interface NewsAction {
+  type: NewsActionTypes;
+  payload: boolean | string | NewsItemType[];
 }
-
-interface FetchNewsSuccessAction {
-  type: NewsActionTypes.FETCH_NEWS_SUCCESS;
-  payload: any[];
-}
-
-interface FetchNewsErrorAction {
-  type: NewsActionTypes.FETCH_NEWS_ERROR;
-  payload: string;
-}
-
-export type NewsAction =
-  | FetchNewsAction
-  | FetchNewsSuccessAction
-  | FetchNewsErrorAction;
 
 export interface NewsItemType {
   by: string;
